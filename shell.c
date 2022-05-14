@@ -21,6 +21,7 @@ int main(int argc, char **argv)
 			_putchar('\n');
 			return (EXIT_SUCCESS);
 		}
+		exec(buffer, argv[0]);
 	} while (line != EOF);
 
 	return (EXIT_SUCCESS);

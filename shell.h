@@ -16,5 +16,6 @@
 int _putchar(char c);
 void prompt(void);
 char **tokenize(char *buff);
+void exec(char *buffer, char *argv);
 
 #endif /*_SHELL_H_*/
