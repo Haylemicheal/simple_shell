@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 
 /**
  * number_str - Returns character length.
@@ -33,7 +33,7 @@ char **tokenize(char *buff)
 	char *token = NULL;
 	int i = 0, words = 0;
 	char **input = NULL;
-	char *delim = "\n"
+	char *delim = "\n";
 
 	words = number_str(buff);
 	if (!words)
