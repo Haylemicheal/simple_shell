@@ -14,5 +14,6 @@
 #include <signal.h>
 
 int _putchar(char c);
+void prompt(void);
 
 #endif /*_SHELL_H_*/
