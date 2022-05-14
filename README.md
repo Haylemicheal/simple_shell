@@ -42,5 +42,5 @@ language used by the operating system to govern the execution of shell scripts.
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
 ## Authors
-* Haylemicheal Berihun [Github](https://github.com/Haylemicheal)
-* Mubarek Hussen [Github](https://github.com/MubarekHussen)
+* Haylemicheal Berihun [Github](https://github.com/Haylemicheal) || [Linkedin](https://www.linkedin.com/in/haylemicheal-berihun-a20320aa?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BEIJldyX4Qxew5X2v0YSHzw%3D%3D)
+* Mubarek Hussen [Github](https://github.com/MubarekHussen) || [Linkedin](https://www.linkedin.com/in/mubarek-hussen-142694228?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BdXqppMkOSaqMNSMV835hRg%3D%3D)
