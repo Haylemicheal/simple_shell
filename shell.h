@@ -13,6 +13,6 @@
 #include <limits.h>
 #include <signal.h>
 
-int _putchar(char c)
+int _putchar(char c);
 
 #endif /*_SHELL_H_*/
