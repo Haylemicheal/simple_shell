@@ -1,5 +1,33 @@
 #include "shell.h"
+#include "builtins.h"
 
+/**
+ *num_builtins - Get the number of bilitin functions
+ *Return: Number of builtin functions
+ */
+int num_builtins(void)
+{
+	return (sizeof(builtin_str) / sizeof(char *));
+}
+
+/**
+ * call_builtins - call built in functions
+ * @tokens: Tokenized strings
+ * Return: None
+ */
+void call_builtins(char **tokens)
+{
+	int i = 0;
+
+	for (i = 0; i < num_builtins(); i++)
+	{
+		if (_strncmp(tokens[0], builtin_str[i], _strlen(tokens[0])) == 0)
+		{
+			(*builtin_func[i])(tokens);
+			exit(EXIT_SUCCESS);
+		}
+	}
+}
 /**
  * exec - function for executing commands
  * @buffer: command input
@@ -24,6 +52,7 @@ void exec(char *buffer, char *argv)
 	}
 	else
 	{
+		call_builtins(tokens);
 		child_id = fork();
 		if (child_id == -1)
 		{
