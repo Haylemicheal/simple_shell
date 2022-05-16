@@ -10,7 +10,7 @@ int main(int argc, char **argv)
 {
 	char *buffer = NULL;
 	size_t buffsize = 0;
-	size_t line = 0;
+	int line = 0;
 
 	do {
 		prompt();

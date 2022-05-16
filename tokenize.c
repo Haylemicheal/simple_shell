@@ -1,39 +1,16 @@
 #include "shell.h"
 
 /**
- * number_str - Returns character length.
- * @s: input string.
- * Return: length of 's'.
- */
-
-int number_str(char *s)
-{
-	int i, flag = 1, words = 0;
-
-	for (i = 0; s[i]; i++)
-	{
-		if (s[i] != ' ' && flag == 1)
-		{
-			words += 1;
-			flag = 0;
-		}
-		if (s[i + 1] == ' ')
-			flag = 1;
-	}
-	return (words);
-}
-
-/**
  * tokenize - Splits a line
  * @buff: line input
+ * @delim: Delimiter
  * Return: array of tokens
  */
-char **tokenize(char *buff)
+char **tokenize(char *buff, char *delim)
 {
 	char *token = NULL;
 	int i = 0, words = 0;
 	char **input = NULL;
-	char *delim = "\n";
 
 	words = number_str(buff);
 	if (!words)
@@ -54,4 +31,3 @@ char **tokenize(char *buff)
 	input[i] = NULL;
 	return (input);
 }
-
