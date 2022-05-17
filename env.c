@@ -31,4 +31,5 @@ void *printenv(void)
 		printf("%s\n", environ[i]);
 		i++;
 	}
+	return (0);
 }

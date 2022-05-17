@@ -41,7 +41,7 @@ void launch(pid_t child_id, char **tokens, char *argv, char *cmd)
 {
 	if (child_id == -1)
 	{
-		printf("%s: No such file or directory\n", argv);
+		perror(argv);
 		exit(EXIT_FAILURE);
 	}
 	else if (child_id == 0)
@@ -49,8 +49,7 @@ void launch(pid_t child_id, char **tokens, char *argv, char *cmd)
 		tokens[0] = cmd;
 		if (execve(tokens[0], tokens, NULL) == -1)
 		{
-			printf("%s %s\n", tokens[0], tokens[1]);
-			printf("%s: No such file or directory\n", argv);
+			perror(argv);
 			exit(EXIT_FAILURE);
 		}
 	}

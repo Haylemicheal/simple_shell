@@ -6,7 +6,7 @@
  * @argv: Arguments array
  * Return: Success (0)
  */
-int main(int argc, char **argv)
+int main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 {
 	char *buffer = NULL;
 	size_t buffsize = 0;
@@ -26,4 +26,3 @@ int main(int argc, char **argv)
 
 	return (EXIT_SUCCESS);
 }
-
