@@ -28,6 +28,37 @@ void call_builtins(char **tokens)
 		}
 	}
 }
+
+/**
+ * launch - Launch commands
+ * @child_id: child pid
+ * @tokens: Tokenized Strings
+ * @argv: argv[0]
+ * @cmd: command
+ * Return: None
+ */
+void launch(pid_t child_id, char **tokens, char *argv, char *cmd)
+{
+	if (child_id == -1)
+	{
+		printf("%s: No such file or directory\n", argv);
+		exit(EXIT_FAILURE);
+	}
+	else if (child_id == 0)
+	{
+		tokens[0] = cmd;
+		if (execve(tokens[0], tokens, NULL) == -1)
+		{
+			printf("%s %s\n", tokens[0], tokens[1]);
+			printf("%s: No such file or directory\n", argv);
+			exit(EXIT_FAILURE);
+		}
+	}
+	else
+	{
+		wait(NULL);
+	}
+}
 /**
  * exec - function for executing commands
  * @buffer: command input
@@ -50,28 +81,14 @@ void exec(char *buffer, char *argv)
 		perror("Access error\n");
 		exit(EXIT_FAILURE);
 	}
+	else if (_strncmp(tokens[0], "env", _strlen(tokens[0])) == 0)
+	{
+		printenv();
+	}
 	else
 	{
 		call_builtins(tokens);
 		child_id = fork();
-		if (child_id == -1)
-		{
-			printf("%s: No such file or directory\n", argv);
-			exit(EXIT_FAILURE);
-		}
-		else if (child_id == 0)
-		{
-			tokens[0] = cmd;
-			if (execve(tokens[0], tokens, NULL) == -1)
-			{
-				printf("%s %s\n", tokens[0], tokens[1]);
-				printf("%s: No such file or directory\n", argv);
-				exit(EXIT_FAILURE);
-			}
-		}
-		else
-		{
-			wait(NULL);
-		}
+		launch(child_id, tokens, argv, cmd);
 	}
 }

@@ -17,3 +17,18 @@ char *_getenv(const char *path)
 	}
 	return (NULL);
 }
+
+/**
+ * printenv - Print environment var
+ * Return: none
+ */
+void *printenv(void)
+{
+	int i = 0;
+
+	while (environ[i] != NULL)
+	{
+		printf("%s\n", environ[i]);
+		i++;
+	}
+}
