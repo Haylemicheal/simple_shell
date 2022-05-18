@@ -2,14 +2,17 @@
 #define BUILTINS_H
 
 int _exit_function(char **args);
+int _cd_function(char **args);
 
 char *builtin_str[] = {
-	"exit"
+	"exit",
+	"cd"
 };
 
 int (*builtin_func[]) (char **) = {
-	&_exit_function
+	&_exit_function,
+	&_cd_function
 };
 int num_builtins(void);
-void call_builtins(char **tokens);
+int call_builtins(char **tokens);
 #endif

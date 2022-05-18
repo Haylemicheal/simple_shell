@@ -2,12 +2,16 @@
 
 /**
  * _exit_function - exit function
+ * @args: input arguments
  *
  * Return: 0
  */
 
-int _exit_function(void)
+int _exit_function(char **args)
 {
+	if (args[1] == NULL)
+		exit(0);
+	exit(strtol(args[1], NULL, 10));
 	return (0);
 }
 
@@ -19,18 +23,19 @@ int _exit_function(void)
  * Return: 0.
  */
 
-int _cd_function(char **args __attribute__((unused)))
+int _cd_function(char **args)
 {
 	if (args[1] == NULL)
 	{
-		fprintf(stderr, "lsh: expected argument to \"cd\"\n");
+		printf("expected argument to \"cd\"\n");
 	}
 	else
 	{
 		if (chdir(args[1]) != 0)
 		{
-			perror("lsh");
+			perror("hsh");
 		}
 	}
+
 	return (1);
 }
