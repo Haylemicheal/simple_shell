@@ -14,6 +14,8 @@ int _exit_function(void)
 /**
  *_cd_function - changes the directory
  *
+ *args: input arguments.
+ *
  * Return: 0.
  */
 
