@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * _exit - to exit the terminal.
+ * full_exit - to exit the terminal.
  * @args: a variable to accept the argument.
  * Return: Success (0).
  */
