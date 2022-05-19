@@ -3,17 +3,18 @@
 /**
  * prompt - print $
  *
- * Return: none
+ * Return: 0 or 1
  */
-void prompt(void)
+int prompt(void)
 {
-	char name[] = "$ ";
-	int i = 0;
+	ssize_t w = 0;
 
-	while (name[i])
+	if (isatty(STDIN_FILENO) == 1)
 	{
-		_putchar(name[i]);
-		i++;
+		w = write(1, "$ ", 2);
+		if (w == -1)
+			return (1);
 	}
+	return (0);
 }
 

@@ -40,3 +40,73 @@ int number_str(char *s)
 	return (words);
 }
 
+/**
+ * signal_to_handel - Handle ^C
+ * @sig:Captured Signal
+ * Return: Void
+ */
+void signal_to_handel(int sig)
+{
+	if (sig == SIGINT)
+	{
+		write(1, "\n$ ", 3);
+	}
+}
+
+/**
+*readline - read the line from stdin
+*Return: pointer to the read line
+*/
+char *readline(void)
+{
+	ssize_t r = 0;
+	size_t sl = 0;
+	char *buff = NULL;
+	int i = 0;
+
+	r = getline(&buff, &sl, stdin);
+	if (r == -1)
+	{
+		free(buff);
+		if (isatty(STDIN_FILENO) != 0)
+			write(STDOUT_FILENO, "\n", 1);
+		exit(0);
+	}
+	if (buff[r - 1] == '\n' || buff[r - 1] == '\t')
+		buff[r - 1] = '\0';
+	for (i = 0; buff[i]; i++)
+	{
+		if (buff[i] == '#' && buff[i - 1] == ' ')
+		{
+			buff[i] = '\0';
+			break;
+		}
+	}
+	return (buff);
+}
+/**
+*_strdup - Duplicated strings
+*@s: string to make 2
+*Return: pointer to s2
+*/
+char *_strdup(char *s)
+{
+{
+	size_t len, i;
+	char *str2;
+
+	len = _strlen(s);
+	str2 = malloc(sizeof(char) * (len + 1));
+	if (!str2)
+	{
+		return (NULL);
+	}
+
+	for (i = 0; i <= len; i++)
+	{
+		str2[i] = s[i];
+	}
+
+	return (str2);
+}
+}

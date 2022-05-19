@@ -3,10 +3,9 @@
 /**
  * tokenize - Splits a line
  * @buff: line input
- * @delim: Delimiter
  * Return: array of tokens
  */
-char **tokenize(char *buff, char *delim)
+char **tokenize(char *buff)
 {
 	char *token = NULL;
 	int i = 0, words = 0;
@@ -21,11 +20,11 @@ char **tokenize(char *buff, char *delim)
 		perror("Allocation Error");
 		exit(1);
 	}
-	token = strtok(buff, delim);
+	token = strtok(buff, DELIM);
 	while (token != NULL)
 	{
 		input[i] = strdup(token);
-		token = strtok(NULL, delim);
+		token = strtok(NULL, DELIM);
 		i++;
 	}
 	input[i] = NULL;
