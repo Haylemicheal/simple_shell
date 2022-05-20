@@ -63,3 +63,14 @@ The following builtin commands are supported:
 
 .B unsetenv
 - removes elements from the environment
+.SH BUGS
+No known bugs at this writing (May 18, 2022).
+Please report any issues to the authors.
+
+.SH AUTHOR
+Haylemicheal Mekonen <haylemicheal.mekonnen@gmail.com>
+
+Mubarek Hussen <mubahussen2014@gmail.com>
+
+.SH SEE ALSO
+sh
