@@ -34,7 +34,7 @@ int path_members(char *s);
 char *f_path(char **input, char *PATH, char *c);
 char *concatation(char *tmp, char **input, char *token);
 char *_memset(char *s, char c, unsigned int bytes);
-int execute(char **input, char *buff, char *fpathbuff);
+int execute(char **input, char *buff, char *fpathbuff, char *argv);
 void _puts(char *s);
 int builtins(char **input, char *buff, int exitv);
 int _cd(char **input);

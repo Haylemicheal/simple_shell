@@ -4,9 +4,10 @@
 *@input: array of command
 *@buff: string of the command
 *@fpathbuff: string of the path
+*@argv: File name
 *Return: 0 on succes
 */
-int execute(char **input, char *buff, char *fpathbuff)
+int execute(char **input, char *buff, char *fpathbuff, char *argv)
 {
 	int i, stat, ex, exitv = 0;
 	pid_t pid;
@@ -22,7 +23,7 @@ int execute(char **input, char *buff, char *fpathbuff)
 		ex = execve(fpathbuff, input, environ);
 		if (ex == -1)
 		{
-			perror(input[0]);
+			perror(argv);
 			for (i = 0; input[i]; i++)
 				free(input[i]);
 			free(input);

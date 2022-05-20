@@ -35,7 +35,7 @@ int main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 			fpath = f_path(input, path, c);
 			if (builtins(input, buffer, exit) != 0)
 				continue;
-			exit = execute(input, buffer, fpath);
+			exit = execute(input, buffer, fpath, argv[0]);
 		}
 		else
 			free(buffer);
